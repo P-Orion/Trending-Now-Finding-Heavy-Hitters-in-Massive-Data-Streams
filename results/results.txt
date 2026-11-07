@@ -1,0 +1,47 @@
+stream: C:\Users\power\OneDrive\Desktop\Intro Anal - 1\Term Project\data\pickups.txt
+events n: 3000000
+distinct zones: 256
+top-k size K for tables 1-3: 10
+exact top-K: [161, 237, 132, 236, 162, 230, 186, 142, 138, 239]
+
+Table 1: Misra-Gries, accuracy vs k (top-K, k-1 counters)
+         k  counters  precision   recall  rel.error
+        10         9       0.56     0.50     1.0000
+        20        19       0.70     0.70     1.0000
+        50        49       1.00     1.00     0.2384
+       100        99       1.00     1.00     0.0160
+       200       199       1.00     1.00     0.0017
+       300       299       1.00     1.00     0.0000
+
+Table 2: top-k tracker, accuracy vs sketch width (depth 5, k = 10)
+     width  counters  precision   recall  rel.error
+         4        30       0.40     0.40     4.5561
+         8        50       0.40     0.40     1.7569
+        16        90       0.50     0.50     0.7066
+        32       170       0.90     0.90     0.2606
+        64       330       1.00     1.00     0.0269
+       128       650       1.00     1.00     0.0009
+       256      1290       1.00     1.00     0.0000
+
+Table 3: top-k tracker, accuracy vs sketch depth (width 32, k = 10)
+     depth  counters  precision   recall  rel.error
+         1        42       0.30     0.30     0.8021
+         2        74       0.50     0.50     0.6208
+         3       106       0.60     0.60     0.4111
+         4       138       0.70     0.70     0.2864
+         5       170       0.90     0.90     0.2606
+         8       266       0.80     0.80     0.0799
+
+Table 4: top-k tracker, accuracy vs k (width 64, depth 5)
+         k  counters  precision   recall  rel.error
+         5       325       1.00     1.00     0.0485
+        10       330       1.00     1.00     0.0269
+        20       340       1.00     1.00     0.0162
+        50       370       0.94     0.94     0.0291
+
+Speed (single pass over the whole stream)
+method                           events/sec
+exact dict counter               11,183,839
+Misra-Gries (k=50)                6,850,400
+Count-Min (64 x 5)                  552,947
+Top-k tracker (k=10, 64 x 5)        241,770
