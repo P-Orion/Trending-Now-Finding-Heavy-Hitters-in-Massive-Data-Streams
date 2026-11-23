@@ -2,7 +2,7 @@
 
 CSE 4081 Analysis of Algorithms, Fall 2026, Group 11: Roni Asiedu, Orion Powers, Logan Stiller.
 
-The system Trending Now processes a large number of taxi trips in New York City in a single pass without preserving any data for any subsequent processing use. It uses a highly efficient algorithm called Misra-Gries (a Count-Min sketch). The system was developed from scratch and includes an strong counting strategy known as a top-k tracker (the Count-Min sketch plus a small candidate heap), which was tested against an exact counting system.
+The system Trending Now processes a large number of taxi trips in New York City in a single pass without preserving any data for any subsequent processing use. It uses the Misra-Gries algorithm and a Count-Min sketch. The system was developed from scratch and includes an strong counting strategy known as a top-k tracker (the Count-Min sketch plus a small candidate heap), which was tested against an exact counting system.
 
 ## Requirements
 
@@ -24,7 +24,7 @@ No compilation is needed. Run every command from this folder.
 | `prepare_data.py` | The process of downloading the TLC data and constructing the data/pickups.txt. |
 | `tests/test_trending.py` | The unit tests. |
 | `evaluate.py` | The process of checking accuracy and speed relative to the accurate counts. |
-| `demo.py` | The demonstration video includes live trending list and the precise list. |
+| `demo.py` | The demonstration includes live trending list and the precise list. |
 | `results/results.txt` | Output generated from evaluate.py. |
 | `assignment/` | The assignment given to students which consists of description, starting code, input, expected output, and grading scheme. |
 
